@@ -22,8 +22,8 @@ def recv_connection():
     server.listen()
     while True:
         client, addr = server.accept()
-        client_handle = threading.Thread(target=process_handler,args=(client,))
-        client_handle.start()
+        handle_client = threading.Thread(target=process_handler,args=(client,))
+        handle_client.start()
 
 def process_handler(client_socket):
     while True:
@@ -85,6 +85,7 @@ def show_current_queue():
     print('Fila de pedidos atual: \n') 
     i = 0
     lock.acquire()
+    print('N°    - ID')
     for pid in requests_pid:
         i += 1
         string = bits_padding((str(i) + ' '),6,' ')
@@ -96,6 +97,7 @@ def show_requests_pid():
     os.system('cls')
     print('Numero de requests atendidos de cada processo: \n') 
     lock.acquire()
+    print('ID   - N° de GRANTS enviados')
     for pid in clients: 
         print(str(pid) + ' - ' + str(clients[pid]))
     lock.release()
