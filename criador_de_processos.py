@@ -11,9 +11,9 @@ bind_port = 12000
 REQUEST = '1'
 RELEASE = '2'
 GRANT = '3'
-
+lock = threading.Lock()
 r = 1000             # número de vezes que os processos vão repetir 
-n = 16               # número de processos
+n = 128              # número de processos
 k = 0                # tempo em segundos que o processo vai esperar antes de dar o release
 num_exec = r*n 
 current_exec = [0]
