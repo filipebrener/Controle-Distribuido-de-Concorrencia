@@ -13,7 +13,7 @@ RELEASE = '2'
 GRANT = '3'
 
 r = 1000             # número de vezes que os processos vão repetir 
-n = 32               # número de processos
+n = 128               # número de processos
 k = 0                # tempo em segundos que o processo vai esperar antes de dar o release
 num_exec = r*n       # número total de execuções esperadas
 current_exec = [0]   # número atual de execuções realizadas
