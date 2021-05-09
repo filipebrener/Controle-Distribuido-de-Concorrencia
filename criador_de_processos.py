@@ -5,7 +5,7 @@ import threading
 import time
 
 #bind_ip = ip do servidor
-bind_ip = '192.168.0.112'
+bind_ip = 'localhost'
 bind_port = 12000
 
 REQUEST = '1'
@@ -13,10 +13,10 @@ RELEASE = '2'
 GRANT = '3'
 
 r = 1000             # número de vezes que os processos vão repetir 
-n = 16               # número de processos
+n = 32               # número de processos
 k = 0                # tempo em segundos que o processo vai esperar antes de dar o release
-num_exec = r*n 
-current_exec = [0]
+num_exec = r*n       # número total de execuções esperadas
+current_exec = [0]   # número atual de execuções realizadas
 
 def init_file():
     file = open('resultado.txt','w+')
